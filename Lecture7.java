@@ -1,4 +1,3 @@
-package week1;
 interface olaCustomers{
 	void bookCab();
 	void findARide();
