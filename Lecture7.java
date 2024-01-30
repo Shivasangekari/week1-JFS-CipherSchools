@@ -1,201 +1,188 @@
-interface olaCustomers{
-	void bookCab();
-	void findARide();
-	void rentCab();
-	void rateDriver();
-	void scheduletoWallet();
-	void cancelCab();
-	void addMoneytoWallet();
-	void raiseTicket();
-	void signup();
-	void signIn();
+import java.util.HashMap;
+import java.util.Map;
+
+interface OlaCustomers {
+    void bookCab();
+    void findARide();
+    void rentCab();
+    void rateDriver();
+    void scheduleToWallet();
+    void cancelCab();
+    void addMoneyToWallet();
+    void raiseTicket();
+    void signup();
+    void signIn();
 }
-interface olaDriver{
-	void acceptBooking();
-	void getCustomerLocation();
-	void setAvailableStatus();
-	void getMyComission();
-	void raiseMoneyTransferRequest();
-	void callCustomer();
-	void setUpYourVehicle();
-	void customerFeedback();
+
+interface OlaDriver {
+    void acceptBooking();
+    void getCustomerLocation();
+    void setAvailableStatus();
+    void getMyCommission();
+    void raiseMoneyTransferRequest();
+    void callCustomer();
+    void setUpYourVehicle();
+    void customerFeedback();
 }
-interface olaOwner{
-	void getDriveRecords();
-	void getReportByDriverID();
-	void getReportByRegion();
-	void getTotalRevenue();
-	void getCustomerFeedback();
-	void addDriver();
-	void removeDriver();
-	void changeDriverStatus();
+
+interface OlaOwner {
+    void getDriveRecords();
+    void getReportByDriverID();
+    void getReportByRegion();
+    void getTotalRevenue();
+    void getCustomerFeedback();
+    void addDriver(String driverName);
+    void removeDriver(String driverName);
+    void changeDriverStatus(String driverName, boolean newStatus);
 }
-public class lecture7 implements olaOwner , olaDriver, olaCustomers{
 
-	public static void main(String[] args) {
-		
-		olaOwner shiva=new lecture7();
-		shiva.addDriver();
-		olaCustomers naga=new lecture7();
-		naga.bookCab();
-		olaDriver nani=new lecture7();
-		nani.callCustomer();
-	}
+public class Lecture7 implements OlaOwner, OlaDriver, OlaCustomers {
+    private Map<String, Boolean> driversAvailability = new HashMap<>();
 
-	@Override
-	public void bookCab() {
-		// TODO Auto-generated method stub
-		
-	}
+    public static void main(String[] args) {
+        Lecture7 shiva = new Lecture7();
+        shiva.addDriver("shiva");
+        shiva.addDriver("nani");
 
-	@Override
-	public void findARide() {
-		// TODO Auto-generated method stub
-		
-	}
+        OlaCustomers nani = shiva;
+        nani.bookCab();
+        nani.addMoneyToWallet();
 
-	@Override
-	public void rentCab() {
-		// TODO Auto-generated method stub
-		
-	}
+        OlaDriver naga = shiva;
+        naga.callCustomer();
+        naga.getMyCommission();
+    }
 
-	@Override
-	public void rateDriver() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void bookCab() {
+        System.out.println("Cab booked successfully!");
+    }
 
-	@Override
-	public void scheduletoWallet() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void findARide() {
+        System.out.println("Finding a ride...");
+    }
 
-	@Override
-	public void cancelCab() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void rentCab() {
+        System.out.println("Cab rented successfully!");
+    }
 
-	@Override
-	public void addMoneytoWallet() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void rateDriver() {
+        System.out.println("Driver rated!");
+    }
 
-	@Override
-	public void raiseTicket() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void scheduleToWallet() {
+        System.out.println("Transaction scheduled to wallet.");
+    }
 
-	@Override
-	public void signup() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void cancelCab() {
+        System.out.println("Cab canceled!");
+    }
 
-	@Override
-	public void signIn() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void addMoneyToWallet() {
+        System.out.println("Money added to wallet.");
+    }
 
-	@Override
-	public void acceptBooking() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void raiseTicket() {
+        System.out.println("Ticket raised!");
+    }
 
-	@Override
-	public void getCustomerLocation() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void signup() {
+        System.out.println("Signed up successfully!");
+    }
 
-	@Override
-	public void setAvailableStatus() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void signIn() {
+        System.out.println("Signed in successfully!");
+    }
 
-	@Override
-	public void getMyComission() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void acceptBooking() {
+        System.out.println("Booking accepted!");
+    }
 
-	@Override
-	public void raiseMoneyTransferRequest() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void getCustomerLocation() {
+        System.out.println("Customer location retrieved.");
+    }
 
-	@Override
-	public void callCustomer() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void setAvailableStatus() {
+        System.out.println("Availability status set.");
+    }
 
-	@Override
-	public void setUpYourVehicle() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void getMyCommission() {
+        System.out.println("Commission retrieved.");
+    }
 
-	@Override
-	public void customerFeedback() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void raiseMoneyTransferRequest() {
+        System.out.println("Money transfer request raised.");
+    }
 
-	@Override
-	public void getDriveRecords() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void callCustomer() {
+        System.out.println("Calling customer...");
+    }
 
-	@Override
-	public void getReportByDriverID() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void setUpYourVehicle() {
+        System.out.println("Vehicle set up successfully.");
+    }
 
-	@Override
-	public void getReportByRegion() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void customerFeedback() {
+        System.out.println("Customer feedback received.");
+    }
 
-	@Override
-	public void getTotalRevenue() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void getDriveRecords() {
+        System.out.println("Drive records retrieved.");
+    }
 
-	@Override
-	public void getCustomerFeedback() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void getReportByDriverID() {
+        System.out.println("Report by driver ID retrieved.");
+    }
 
-	@Override
-	public void addDriver() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void getReportByRegion() {
+        System.out.println("Report by region retrieved.");
+    }
 
-	@Override
-	public void removeDriver() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void getTotalRevenue() {
+        System.out.println("Total revenue retrieved.");
+    }
 
-	@Override
-	public void changeDriverStatus() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void getCustomerFeedback() {
+        System.out.println("Customer feedback retrieved.");
+    }
 
+    @Override
+    public void addDriver(String driverName) {
+        driversAvailability.put(driverName, true);
+        System.out.println("Driver " + driverName + " added successfully.");
+    }
+
+    @Override
+    public void removeDriver(String driverName) {
+        driversAvailability.remove(driverName);
+        System.out.println("Driver " + driverName + " removed successfully.");
+    }
+
+    @Override
+    public void changeDriverStatus(String driverName, boolean newStatus) {
+        driversAvailability.put(driverName, newStatus);
+        System.out.println("Driver " + driverName + " status changed to " + (newStatus ? "Available" : "Not Available"));
+    }
 }
